@@ -36,6 +36,8 @@
             padding: 45px;
             text-align: center;
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+            border-radius: 5px;
         }
 
         .staticrypt-form input {
@@ -47,22 +49,28 @@
             padding: 15px;
             box-sizing: border-box;
             font-size: 14px;
+
+            border-radius: .25em;
         }
 
         .staticrypt-form .staticrypt-decrypt-button {
-            text-transform: uppercase;
+            /*text-transform: uppercase;*/
             outline: 0;
-            background: #bd2130;
+            /*background: #bd2130;*/
             width: 100%;
             border: 0;
             padding: 15px;
             color: #FFFFFF;
             font-size: 14px;
             cursor: pointer;
+
+            background-color: #292b2c;
+            font-weight: 600;
         }
 
         .staticrypt-form .staticrypt-decrypt-button:hover, .staticrypt-form .staticrypt-decrypt-button:active, .staticrypt-form .staticrypt-decrypt-button:focus {
-            background: #c82333;
+            /*background: #c82333;*/
+            background-color: #000000;
         }
 
         .staticrypt-html {
@@ -89,6 +97,8 @@
 
         .staticrypt-title {
             font-size: 1.5em;
+
+            font-weight: 600;
         }
 
         .staticrypt-footer {
@@ -100,6 +110,8 @@
             left: 0;
             right: 0;
             margin-bottom: 0;
+
+            display: none;
         }
 
         .staticrypt-footer p {
@@ -6135,6 +6147,8 @@
 
 }));</script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <script>
 
     /**
@@ -6171,7 +6185,14 @@
             decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
 
         if (decryptedHMAC !== encryptedHMAC) {
-            alert('Bad passphrase!');
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: "That's the wrong password!",
+              confirmButtonText: 'Retry',
+              confirmButtonColor: '#dc3545'
+              //footer: '<a href>Why do I have this issue?</a>'
+            });
             return;
         }
 
