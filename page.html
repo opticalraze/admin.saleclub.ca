@@ -8,11 +8,58 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+    <style media="screen">
+      .content {
+        padding:30px;
+        margin-left:10%;
+        margin-right:10%;
+        margin-top:50px;
+      }
+      .container {
+        min-height:200px;
+        margin-bottom:100px;
+      }
+      .subcategory {
+        min-height:100px;
+        margin-bottom:50px;
+      }
+      .disabled {
+        pointer-events:none;
+      }
+
+      .navbar {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        z-index: 100;
+      }
+
+      .navbar-brand {
+        width:60px;
+        padding-bottom:0;
+        padding-top:0;
+        margin-bottom:-10px;
+        margin-top:-10px;
+      }
+
+      .dropdown-menu {
+        text-transform:capitalize;
+      }
+
+      .action-buttons {
+        position:absolute;
+        right:20px;
+      }
+    </style>
+
   </head>
-  <body>
+  <body class="bg-light">
+
+    <div class="main bg-white" style="border-bottom:5px solid #f8f9fa;">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/" style="width:60px;padding-bottom:0;padding-top:0;margin-bottom:-10px;margin-top:-10px;">
+      <a class="navbar-brand" href="/">
         <img src="https://saleclub.ca/assets/logo.svg" alt="SaleClub.ca">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,29 +67,446 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Features</a>
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#dod">Features</a>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Categories
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="categories-dropdown" style="text-transform:capitalize;">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="categories-dropdown">
 
             </div>
           </li>
-          <a class="nav-item nav-link" href="#">Coupons</a>
-          <form class="form-inline my-2 my-lg-0">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Coupons
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="coupons-dropdown">
+
+            </div>
+          </li>
+          <!--<a class="nav-item nav-link" href="#coupons">Coupons</a>-->
+          <!--<form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="margin-right: 0px!important;border-top-right-radius:0;border-bottom-right-radius:0;margin-left:50px;">
             <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" style="border-top-left-radius:0;border-bottom-left-radius:0;">Search</button>
-          </form>
+          </form>-->
 
-          <div class="" style="position:absolute;right:10px;">
+          <div class="action-buttons">
             <button class="btn btn-light my-2 my-sm-0" id="load">Load</button>
-            <button class="btn btn-dark my-2 my-sm-0 disabled">Save</button>
+            <button class="btn btn-dark my-2 my-sm-0 disabled" id="save">Save</button>
           </div>
         </div>
       </div>
     </nav>
+
+
+    <div class="content">
+      <div class="container" id="dod">
+        <h1>Deals of the Day</h1>
+        <hr>
+
+      </div>
+
+      <div class="container" id="categories">
+        <h1>Categories</h1>
+        <hr>
+
+        <div class="subcategory">
+          <h2>Sports</h2>
+          <hr>
+
+          <div class="" style="margin-left:-15px;margin-right:-15px;">
+
+
+          <style media="screen">
+          .card.sale {
+width:18rem;
+display:inline-block;
+margin:10px 15px 15px 15px;
+
+height:35rem;
+vertical-align:top;
+}
+
+.card.sale a {
+text-decoration:none;
+}
+
+.card.sale .card-img-top {
+padding: 10px;
+}
+.card.sale .card-img-top .img {
+width: 100%;
+padding-top: 100%;
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.card.sale .card-body {
+height:112px;
+overflow: hidden;
+border-bottom: 1px solid rgba(0,0,0,.125); /* might not use this */
+}
+
+.card.sale .brand-logo {
+height: 20px;
+margin-top: 8px;
+margin-bottom: 8px;
+}
+
+.card.sale:hover {
+  /*filter: brightness(.5);*/
+}
+
+.card.sale .card-img-top {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+
+.card.sale .overlay {
+  width:100%;height:100%;position:absolute;display:table;text-align:center;opacity:0;cursor:pointer;background-color:rgba(0,0,0,0.5);color:rgba(255,255,255,0.75);
+}
+
+.card.sale .overlay i {
+  display:table-cell;vertical-align:middle;
+}
+
+.card.sale:hover .overlay {
+  opacity:1;
+}
+
+
+.noscroll {
+  overflow: hidden;
+}
+
+
+          </style>
+
+
+          <div class="card sale add animate__animated animate__fadeIn">
+            <div class="overlay" style="opacity:1;background-color:transparent;color:black;"><i class="fas fa-plus fa-3x"></i></div>
+            <a class="text-dark" href="#">
+
+            </a>
+          </div>
+
+
+
+          <div class="card sale animate__animated animate__fadeIn">
+            <div class="overlay"><i class="fas fa-edit fa-3x"></i></div>
+            <a class="text-dark" href="#">
+              <div class="card-img-top">
+                <div class="img" style="background-image:url('https://www.amazon.ca/images/I/712UDuT1yRL._SL1500_.jpg')"></div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">product description and sale info</p>
+              </div>
+              <div class="card-foot text-center">
+                <p class="label savings bg-danger text-white"><b>percentage off or discount amount</b> </p>
+                <p class="label price bg-white"><span class="regular"><b>regular:</b> <i>$156.00</i> <span style="margin-left:10px;"><b>sale:</b> <i>$100.00</i></span></p>
+                <p class="label expire bg-white"><b>expire:</b> <i>02-08-2022 @ 10:00PM UTC</i></p>
+                <img class="brand-logo" src="https://saleclub.ca/assets/affiliates/amazon.svg">
+              </div>
+            </a>
+          </div>
+
+          <div class="card sale animate__animated animate__fadeIn">
+            <div class="overlay"><i class="fas fa-edit fa-3x"></i></div>
+            <a class="text-dark" href="#">
+              <div class="card-img-top">
+                <div class="img" style="background-image:url('https://www.amazon.ca/images/I/712UDuT1yRL._SL1500_.jpg')"></div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">product description and sale info</p>
+              </div>
+              <div class="card-foot text-center">
+                <p class="label savings bg-danger text-white"><b>percentage off or discount amount</b> </p>
+                <p class="label price bg-white"><span class="regular"><b>regular:</b> <i>$156.00</i> <span style="margin-left:10px;"><b>sale:</b> <i>$100.00</i></span></p>
+                <p class="label expire bg-white"><b>expire:</b> <i>02-08-2022 @ 10:00PM UTC</i></p>
+                <img class="brand-logo" src="https://saleclub.ca/assets/affiliates/amazon.svg">
+              </div>
+            </a>
+          </div>
+
+          <div class="card sale animate__animated animate__fadeIn">
+            <div class="overlay"><i class="fas fa-edit fa-3x"></i></div>
+            <a class="text-dark" href="#">
+              <div class="card-img-top">
+                <div class="img" style="background-image:url('https://www.amazon.ca/images/I/712UDuT1yRL._SL1500_.jpg')"></div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">product description and sale info</p>
+              </div>
+              <div class="card-foot text-center">
+                <p class="label savings bg-danger text-white"><b>percentage off or discount amount</b> </p>
+                <p class="label price bg-white"><span class="regular"><b>regular:</b> <i>$156.00</i> <span style="margin-left:10px;"><b>sale:</b> <i>$100.00</i></span></p>
+                <p class="label expire bg-white"><b>expire:</b> <i>02-08-2022 @ 10:00PM UTC</i></p>
+                <img class="brand-logo" src="https://saleclub.ca/assets/affiliates/amazon.svg">
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+
+        <div class="subcategory">
+          <h2>Tech</h2>
+          <hr>
+
+          <div class="" style="margin-left:-15px;margin-right:-15px;">
+
+          <div class="card sale animate__animated animate__fadeIn">
+            <div class="overlay"><i class="fas fa-edit fa-3x"></i></div>
+            <a class="text-dark" href="#">
+              <div class="card-img-top">
+                <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61deO-QlDnL._AC_UX569_.jpg')"></div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">product description and sale info</p>
+              </div>
+              <div class="card-foot text-center">
+                <p class="label savings bg-danger text-white"><b>percentage off or discount amount</b> </p>
+                <p class="label price bg-white"><span class="regular"><b>regular:</b> <i>$156.00</i> <span style="margin-left:10px;"><b>sale:</b> <i>$100.00</i></span></p>
+                <p class="label expire bg-white"><b>expire:</b> <i>02-08-2022 @ 10:00PM UTC</i></p>
+                <img class="brand-logo" src="https://saleclub.ca/assets/affiliates/amazon.svg">
+              </div>
+            </a>
+          </div>
+
+          <div class="card sale animate__animated animate__fadeIn">
+            <div class="overlay"><i class="fas fa-edit fa-3x"></i></div>
+            <a class="text-dark" href="#">
+              <div class="card-img-top">
+                <div class="img" style="background-image:url('https://www.amazon.ca/images/I/91mwhkzWasL._AC_UX569_.jpg')"></div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">product description and sale info</p>
+              </div>
+              <div class="card-foot text-center">
+                <p class="label savings bg-danger text-white"><b>percentage off or discount amount</b> </p>
+                <p class="label price bg-white"><span class="regular"><b>regular:</b> <i>$156.00</i> <span style="margin-left:10px;"><b>sale:</b> <i>$100.00</i></span></p>
+                <p class="label expire bg-white"><b>expire:</b> <i>02-08-2022 @ 10:00PM UTC</i></p>
+                <img class="brand-logo" src="https://saleclub.ca/assets/affiliates/amazon.svg">
+              </div>
+            </a>
+          </div>
+
+
+          <div class="card sale animate__animated animate__fadeIn">
+            <div class="overlay"><i class="fas fa-edit fa-3x"></i></div>
+            <a class="text-dark" href="#">
+              <div class="card-img-top">
+                <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61JE8xTPCGL._AC_UL1300_.jpg')"></div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">product description and sale info</p>
+              </div>
+              <div class="card-foot text-center">
+                <p class="label savings bg-danger text-white"><b>percentage off or discount amount</b> </p>
+                <p class="label price bg-white"><span class="regular"><b>regular:</b> <i>$156.00</i> <span style="margin-left:10px;"><b>sale:</b> <i>$100.00</i></span></p>
+                <p class="label expire bg-white"><b>expire:</b> <i>02-08-2022 @ 10:00PM UTC</i></p>
+                <img class="brand-logo" src="https://saleclub.ca/assets/affiliates/amazon.svg">
+              </div>
+            </a>
+          </div>
+
+
+          <div class="card sale animate__animated animate__fadeIn">
+           <div class="overlay"><i class="fas fa-edit fa-3x"></i></div>
+            <a class="text-dark" href="#">
+              <div class="card-img-top">
+                <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61yxyQLcW7L._AC_SL1500_.jpg')"></div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">product description and sale info</p>
+              </div>
+              <div class="card-foot text-center">
+                <p class="label savings bg-danger text-white"><b>percentage off or discount amount</b> </p>
+                <p class="label price bg-white"><span class="regular"><b>regular:</b> <i>$156.00</i> <span style="margin-left:10px;"><b>sale:</b> <i>$100.00</i></span></p>
+                <p class="label expire bg-white"><b>expire:</b> <i>02-08-2022 @ 10:00PM UTC</i></p>
+                <img class="brand-logo" src="https://saleclub.ca/assets/affiliates/amazon.svg">
+              </div>
+            </a>
+          </div>
+
+        </div>
+        </div>
+
+        <div class="subcategory">
+          <h2>Gaming</h2>
+          <hr>
+
+        </div>
+
+      </div>
+
+      <div class="container" id="coupons">
+        <h1>Coupons</h1>
+        <hr>
+
+        <div class="subcategory">
+          <h2>Staples</h2>
+          <hr>
+
+          <div class="" style="margin-left:-15px;margin-right:-15px;">
+
+          </div>
+
+        </div>
+
+        <div class="subcategory">
+          <h2>Amazon</h2>
+          <hr>
+
+          <div class="" style="margin-left:-15px;margin-right:-15px;">
+
+          </div>
+
+        </div>
+
+
+        <div class="subcategory">
+          <h2>Best Buy</h2>
+          <hr>
+
+          <div class="" style="margin-left:-15px;margin-right:-15px;">
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+    <style media="screen">
+      .popup {
+        z-index: 200;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height:100%;
+
+        background-color: rgba(0,0,0,0.75);
+        text-align: center;
+        display: none;
+      }
+
+      .popup .card {
+        width: 80vw;
+        margin-left: 10vw;
+        height: 90vh;
+        margin-top:5vh;
+      }
+
+      .popup .card h1 {
+        margin-top:8px;
+        margin-bottom: 0px;
+      }
+
+      .close-popup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 250;
+      }
+
+      #edit-popup .picture{
+        width: 30vw;
+      }
+
+      #edit-popup .picture .img {
+      width: 100%;
+      padding-top: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      }
+
+      #edit-popup .picture input{
+        width: 100%;
+      }
+
+      .card-body {
+        overflow-y: scroll;
+        text-align: left;
+      }
+    </style>
+
+    <div class="popup" id="edit-popup">
+      <div class="card">
+        <h1>Edit</h1>
+        <hr>
+
+        <div class="card-body">
+
+          <div class="">
+
+
+          <div class="picture" style="display:inline-block;">
+            <div class="img" style="background-image:url('https://www.amazon.ca/images/I/712UDuT1yRL._SL1500_.jpg')"></div>
+            <input type="text" name="" value="" class="form-control" placeholder="picture url">
+          </div>
+
+          <div class="info" style="display:inline-block;float:right;width:40vw;">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="description (product name plus any useful information)"></textarea>
+            <br>
+            <input type="text" name="" value="" class="form-control" placeholder="regular price">
+            <br>
+            <input type="text" name="" value="" class="form-control" placeholder="sale price">
+            <br>
+            <input type="text" name="" value="" class="form-control" placeholder="percentage off or discount amount">
+            <br>
+            <input type="text" name="" value="" class="form-control" placeholder="expiration">
+            <br>
+            <input type="text" name="" value="" class="form-control" placeholder="product link">
+            <br>
+            <input type="text" name="" value="" class="form-control" placeholder="category">
+            <br>
+            <input type="text" name="" value="" class="form-control" placeholder="subcategory">
+            <br>
+            <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Best Buy</option>
+                  <option>Staple</option>
+                  <option>The Source</option>
+                  <option>Amazon</option>
+                  <option>Canadian Tire</option>
+            </select>
+            <br>
+          </div>
+
+
+                    </div>
+
+          <div class="text-center" style="width:100%;display:flow-root;">
+            <br>
+            <button type="button" name="button" class="btn btn-dark">Update</button>
+            <br><br>
+          </div>
+
+        </div>
+
+
+
+      </div>
+      <button id="close-edit-popup" class="close-popup btn btn-light" type="button" name="button"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="popup" id="add-popup">
+      <div class="card">
+        <h1>Add</h1>
+        <hr>
+      </div>
+      <button id="close-add-popup" class="close-popup btn btn-light" type="button" name="button"><i class="fas fa-times"></i></button>
+    </div>
 
 
     <!-- bootsrap -->
@@ -51,24 +515,52 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!-- Cookies -->
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script> <!-- cookie pluggin for js -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>--> <!-- cookie pluggin for js -->
+    <script src="js.cookie.min.js"></script> <!-- cookie pluggin for js -->
+    <script src="FileSaver.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
     <script type="text/javascript">
     //var data;
-    var data = Cookies.get('data');
-    if(data) data = JSON.parse(encodeURI(data));
+    //var data = Cookies.get('data');
+    var data = sessionStorage.getItem('data');
+    if(data) {
 
-    console.log(data);
+      data = JSON.parse(data);
+      $("#save").removeClass('disabled');
+
+    }
+
+    console.log(data); // testing
 
     const date = Math.floor(Date.now() / 1000); // current timestamp in seconds (is this UTC?)
     const nocache = '?nocache='+date;
 
 
+    //sessionStorage.setItem('data', string);
+
+    //sessionStorage.removeItem('key');
+
+    /*
+    // Save data to sessionStorage
+    sessionStorage.setItem('key', 'value');
+
+    // Get saved data from sessionStorage
+    let data = sessionStorage.getItem('key');
+
+    // Remove saved data from sessionStorage
+    sessionStorage.removeItem('key');
+
+    // Remove all saved data from sessionStorage
+    sessionStorage.clear();
+    */
+
     $("#load").click(function() {
 
       if(!data) {
+
+        $("#save").removeClass('disabled');
 
         $.get('https://saleclub.ca/data/sales.json'+nocache, function(d) {
           //data = JSON.parse(d); works on localhost
@@ -86,10 +578,14 @@
           //categories = data.categories;
 
           //console.log(data);
-          var string = encodeURI(JSON.stringify(data));
+          //var string = encodeURI(JSON.stringify(data));
+          var string = JSON.stringify(data);
+
 
           console.log(string);
-          Cookies.set('data', string, { expires: 1 });
+          //string='1';
+          //Cookies.set('data', string, { expires: 1 });
+          sessionStorage.setItem('data', string);
           //Cookies.set('data', string, { expires: 1 }); // set data cookie
 
         });
@@ -111,6 +607,8 @@
 
     $("#reload").click(function() {
 
+        $("#save").removeClass('disabled');
+
         $.get('https://saleclub.ca/data/sales.json'+nocache, function(d) {
           //data = JSON.parse(d); works on localhost
 
@@ -127,7 +625,10 @@
           //categories = data.categories;
 
           //console.log(data);
-          var string = encodeURI(JSON.stringify(data));
+          //var string = encodeURI(JSON.stringify(data));
+          var string = JSON.stringify(data);
+          sessionStorage.setItem('data', string);
+
           //Cookies.set('data', string, { expires: 1 }); // set data cookie
 
         });
@@ -138,15 +639,54 @@
 
     $("#save").click(function() {
 
-      Cookies.set('data', '', { expires: 0 }); // delete cookie
+
+      /*var data = {
+          key: 'value'
+      };*/
+      const fileName = 'sales.json';
+
+      // Create a blob of the data
+      var fileToSave = new Blob([JSON.stringify(data)], {
+          type: 'application/json',
+          name: fileName
+      });
+
+      // Save the file
+      saveAs(fileToSave, fileName);
+
+
+
+      sessionStorage.removeItem('data');
+
+      $("#save").addClass('disabled');
+
+      data = null;
+
+      //Cookies.set('data', '', { expires: 0 }); // delete cookie
 
     });
 
 
-    </script>
 
 
-    <script>
+    $(".card.sale").click(function() {
+
+      $("body").addClass("noscroll");
+      $("#edit-popup").show();
+
+    });
+
+
+    $("#close-edit-popup").click(function() {
+
+      $("body").removeClass("noscroll");
+      $("#edit-popup").hide();
+
+    });
+
+
+
+
 
     /* prevent hash anchor tag jumping */
     /* <![CDATA[ */
@@ -155,6 +695,20 @@
           e.preventDefault();
        } );
     } )( jQuery );
+    /* ]]> */
+
+    </script>
+
+
+    <script>
+
+    /* prevent hash anchor tag jumping */
+    /* <![CDATA[ */
+    /*( function( $ ) {
+       $( 'a[href="#"]' ).click( function(e) {
+          e.preventDefault();
+       } );
+    } )( jQuery );*/
     /* ]]> */
 
     /* extra style */
