@@ -131,19 +131,30 @@
         </div>
       </div>
 
+      <style media="screen">
+        .cards{
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+        }
 
+        .card {
+          scroll-snap-align: center;
+        }
+      </style>
 
+      <div class="slider" style="padding-top: 100px;border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;">
 
+        <div class="slider-menu" style="padding-left: 10px;padding-right: 10px;display: flex;">
+                <h3>Categories</h3>
+                <select class="form-control" aria-label=".form-select-lg example" style="background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 98% 50%;margin-left: 10px;-moz-appearance: none;-webkit-appearance: none;appearance: none;">
+                  <option>Tech</option>
+                  <option>Sports</option>
+                  <option>Web Hosting</option>
+                </select>
 
-      <hr>
+            </div>
 
-
-
-
-
-      <div class="slider">
-
-        <div class="cards">
+        <div class="cards" style="height: 100%;width: 100%;padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
 
           <div class="card">
             <div class="card-img">
@@ -158,16 +169,12 @@
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61vMT9ueoSL._AC_SL1000_.jpg')"></div>
             </div>
-
-
           </div>
 
           <div class="card">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/71Ik6OnO2OL._AC_SL1500_.jpg')"></div>
             </div>
-
-
           </div>
 
           <div class="card">
@@ -182,8 +189,6 @@
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/816pf8kIc2L._AC_SL1500_.jpg')"></div>
             </div>
-
-
           </div>
 
           <div class="card">
@@ -193,32 +198,78 @@
             <div class="card-p">
               <p><b>Sondiko Butane Torch</b><br><i>Fits All Butane Tanks, Refillable Kitchen Torch Lighter with Safety Lock and Adjustable Flame, Perfect for Desserts, Creme Brulee, BBQ and Soldering</i></p>
             </div>
-
           </div>
 
         </div>
 
-        <div class="slider-controls">
-
-
-
-          <div class="dots">
-            <div class="dot dot-style active"></div>
-            <div class="dot dot-style"></div>
-            <div class="dot dot-style"></div>
-            <div class="dot dot-style"></div>
-            <div class="dot dot-style"></div>
-            <div class="dot dot-style"></div>
-            <div class="dot dot-style"></div>
-          </div>
-        </div>
       </div>
 
 
 
 
 
-      <hr>
+      <div class="slider" style="padding-top: 100px;border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;">
+
+        <div class="slider-menu" style="padding-left: 10px;padding-right: 10px;display: flex;">
+                <h3>Categories</h3>
+                <select class="form-control" aria-label=".form-select-lg example" style="background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 98% 50%;margin-left: 10px;-moz-appearance: none;-webkit-appearance: none;appearance: none;">
+                  <option>Tech</option>
+                  <option>Sports</option>
+                  <option>Web Hosting</option>
+                </select>
+
+            </div>
+
+        <div class="cards" style="height: 100%;width: 100%;padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/713LSRqoB-L._AC_SL1500_.jpg')"></div>
+            </div>
+            <div class="card-p">
+            <p><b>Fire HD 10 Tablet</b><br><i>10.1" 1080p full HD display, 32 GB<br>Black (9th Generation)</i></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61vMT9ueoSL._AC_SL1000_.jpg')"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/71Ik6OnO2OL._AC_SL1500_.jpg')"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61J12N06AHL._AC_SL1200_.jpg')"></div>
+            </div>
+
+
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/816pf8kIc2L._AC_SL1500_.jpg')"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61xsCMyKfXL._AC_SL1318_.jpg')"></div>
+            </div>
+            <div class="card-p">
+              <p><b>Sondiko Butane Torch</b><br><i>Fits All Butane Tanks, Refillable Kitchen Torch Lighter with Safety Lock and Adjustable Flame, Perfect for Desserts, Creme Brulee, BBQ and Soldering</i></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
 
 
 
