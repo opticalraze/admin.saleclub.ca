@@ -17,7 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css?v=1">
 
-
     <style media="screen">
 
 
@@ -28,6 +27,44 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
+
+    /* definite scroll snap */
+.mandatory-scroll-snapping > div {
+  scroll-snap-stop: always;
+}
+.proximity-scroll-snapping > div {
+  scroll-snap-stop: normal;
+}
+/* scroll-snap */
+.x.mandatory-scroll-snapping {
+  scroll-snap-type: x mandatory;
+}
+
+.y.mandatory-scroll-snapping {
+  scroll-snap-type: y mandatory;
+}
+
+.x.proximity-scroll-snapping {
+  scroll-snap-type: x proximity;
+}
+
+.y.proximity-scroll-snapping {
+  scroll-snap-type: y proximity;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+.snap-end {
+  scroll-snap-align: end;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
 
 
     </style>
@@ -132,17 +169,17 @@
       </div>
 
       <style media="screen">
-        .cards{
+        /*.cards{
           scroll-snap-type: x mandatory;
           -webkit-overflow-scrolling: touch;
         }
 
         .card {
           scroll-snap-align: center;
-        }
+        }*/
       </style>
 
-      <div class="slider" style="padding-top: 100px;border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;">
+      <div class="slider" style="/*padding-top: 100px;*/border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;padding-top: 76px;">
 
         <div class="slider-menu" style="padding-left: 10px;padding-right: 10px;display: flex;">
                 <h3>Categories</h3>
@@ -154,9 +191,9 @@
 
             </div>
 
-        <div class="cards" style="height: 100%;width: 100%;padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
+        <div class="cards x mandatory-scroll-snapping" style="/*height: 100%;*/height: calc(100vh - 120px);width: 100%;padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
 
-          <div class="card">
+          <div class="card snap-center">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/713LSRqoB-L._AC_SL1500_.jpg')"></div>
             </div>
@@ -165,19 +202,19 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card snap-center">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61vMT9ueoSL._AC_SL1000_.jpg')"></div>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card snap-center">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/71Ik6OnO2OL._AC_SL1500_.jpg')"></div>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card snap-center">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61J12N06AHL._AC_SL1200_.jpg')"></div>
             </div>
@@ -185,13 +222,13 @@
 
           </div>
 
-          <div class="card">
+          <div class="card snap-center">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/816pf8kIc2L._AC_SL1500_.jpg')"></div>
             </div>
           </div>
 
-          <div class="card">
+          <div class="card snap-center">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61xsCMyKfXL._AC_SL1318_.jpg')"></div>
             </div>
@@ -307,6 +344,7 @@
 
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript">
+
 
 
     </script>
