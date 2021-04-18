@@ -294,12 +294,144 @@
 
 
 
+
+
+
+
+
+        .hidden {
+  display: none!important;
+}
+#content {
+  background-color: white;
+  min-height:100vh;
+  min-width: 100vw;
+  /*text-align:center;
+  padding:30px;
+  padding-top: 76px;
+  padding-bottom: 76px;
+  border-bottom: 5px solid #DC3545;*/
+}
+/* handle the content darken on sidebar open */
+#content.darken {
+  filter: brightness(0.2);
+}
+#content.darken select {
+  pointer-events: none;
+}
+#wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+
+
+
+#sidebar a {
+  color: rgba(255,255,255,.5);
+}
+
+#sidebar a:hover {
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+}
+
+
+#sidebar ul {
+  padding: 16px;
+  opacity: 0;
+}
+
+#sidebar.active ul {
+  opacity: 1;
+}
+
+#sidebar li {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#sidebar li.active a {
+  color: #fff;
+}
+
+#sidebar li.disabled a {
+  opacity: .5;
+  pointer-events: none;
+}
+
+#sidebar ul {
+  position: fixed;
+  top: 56px;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar ul ul {
+  background: rgba(0, 0, 0, 0.075);
+  position: initial;
+  margin-top: 10px;
+  margin-bottom: -8px;
+  font-size: 0.9em !important;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/*  a[data-toggle="collapse"] {
+position: relative;
+}*/
+
+/*.dropdown-toggle::after {
+display: block;
+position: absolute;
+top: 50%;
+right: 20px;
+transform: translateY(-50%);
+}*/
+
+.dropdown-toggle::after {
+display: inline-block;
+/*margin-left: .255em;*/
+margin-left: .510em;
+vertical-align: .255em;
+content: "";
+border-top: .3em solid;
+border-right: .3em solid transparent;
+border-bottom: 0;
+border-left: .3em solid transparent;
+}
+
+@media (max-width: 768px) {
+#sidebar {
+    margin-left: -250px;
+}
+#sidebar.active {
+    margin-left: 0;
+}
+}
+
+
+
+
     </style>
   </head>
   <body class="bg-danger">
 
     <div id="statusbar" class="bg-danger"></div>
     <!--<div class="nav bg-danger"></div>-->
+
+    <div id="wrapper">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger" id="topbar">
       <a class="navbar-brand" href="/">
@@ -313,8 +445,32 @@
       </button>
     </nav>
 
+    <nav id="sidebar">
+      <ul class="list-unstyled components">
+        <li class="active">
+          <a href="home">Home</a>
+        </li>
+        <li>
+          <a href="#categories-dropdown" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="categories-dropdown-toggle">Categories</a>
+          <ul class="collapse list-unstyled" id="categories-dropdown">
 
-    <div class="content">
+          </ul>
+        </li>
+        <li>
+          <a href="coupons">Coupons</a>
+        </li>
+        <li class="disabled">
+          <a href="#">Newsletter</a>
+        </li>
+        <li>
+          <a href="#" id="show-about-popup">About</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+    <div class="content" id="content">
 
       <div class="slider">
 
@@ -482,5 +638,69 @@
 
     </div>
 
+
+  </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+$( document ).ready(function() {
+
+let sidebar = false;
+let scrollPosition;
+
+/* open sidebar */
+      $("#sidebarCollapse").click(function() {
+        //$('#sidebar').toggleClass('active');
+        if (sidebar == true) {
+          sidebar = false;
+          $("#sidebarCollapse").addClass("collapsed");
+          $('#sidebar').removeClass('active');
+          $('.content').removeClass('darken');
+
+          // enable scrolling
+
+          $("body").css({ 'overflow-y':'scroll', 'position':'', 'top':'', 'width':''});
+          $(window).scrollTop(scrollPosition);
+
+        } else {
+          sidebar = true;
+          $("#sidebarCollapse").removeClass("collapsed");
+          $('#sidebar').addClass('active');
+          $('.content').addClass('darken');
+
+
+          // disable scrolling
+          scrollPosition = $(window).scrollTop();
+          $("body").css({ 'overflow-y':'hidden', 'position':'fixed', 'top':`-${scrollPosition}px`, 'width':'100%'});
+
+
+        }
+
+
+        });
+
+        $(".content.darken").click(function(event) {
+
+          if (sidebar == true) {
+            sidebar = false;
+            $("#sidebarCollapse").addClass("collapsed");
+            $('#sidebar').removeClass('active');
+            $('.content').removeClass('darken');
+
+            // enable scrolling
+            $("body").css({ 'overflow-y':'scroll', 'position':'', 'top':'', 'width':''});
+            $(window).scrollTop(scrollPosition);
+
+            // prevent click through
+            return false;
+          }
+
+        });
+
+    });
+
+</script>
   </body>
 </html>
