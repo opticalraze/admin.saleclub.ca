@@ -102,18 +102,47 @@
 
         white-space: nowrap;
 
-        overflow: hidden;
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+
+
+
+        /*scroll-snap-type: x mandatory;*/
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
       }
 
       .card{
         height: 100%;
         width: 100%;
         display: inline-block;
+
+        scroll-snap-align: center;
       }
+
+
+
+
+
+      #statusbar {
+        position:fixed;
+        height:80px;
+        width:100vw;
+        top:-80px;
+        left:0;
+        z-index:500;
+      }
+
+
+
+
+
     </style>
   </head>
   <body class="bg-danger">
 
+    <div id="statusbar" class="bg-danger"></div>
     <div class="nav bg-danger"></div>
 
 
@@ -122,6 +151,22 @@
       <div class="slider">
 
         <div class="cards">
+
+          <div class="card">
+
+          </div>
+
+          <div class="card">
+
+          </div>
+
+          <div class="card">
+
+          </div>
+
+          <div class="card">
+
+          </div>
 
           <div class="card">
 
