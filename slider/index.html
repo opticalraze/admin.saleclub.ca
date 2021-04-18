@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Slider</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Slider">
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+    <style media="screen">
+
+
+
+
+
+    </style>
+  </head>
+  <body class="bg-danger">
+
+    <div id="statusbar" class="bg-danger"></div>
+    <!--<div class="nav bg-danger"></div>-->
+
+    <div id="wrapper">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger" id="topbar">
+      <a class="navbar-brand" href="/">
+        <img src="https://saleclub.ca/assets/logo-white.svg" alt="SaleClub.ca">
+      </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="sidebarCollapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+    </nav>
+
+    <nav id="sidebar">
+      <ul class="list-unstyled components">
+        <li class="active">
+          <a href="home">Home</a>
+        </li>
+        <li>
+          <a href="#categories-dropdown" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="categories-dropdown-toggle">Categories</a>
+          <ul class="collapse list-unstyled" id="categories-dropdown">
+            <li><a href="/#categories" class="dropdown-item capitalize change-category" data-value="1">1</a></li>
+            <li><a href="/#categories" class="dropdown-item capitalize change-category" data-value="2">2</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="coupons">Coupons</a>
+        </li>
+        <li class="disabled">
+          <a href="#">Newsletter</a>
+        </li>
+        <li>
+          <a href="#" id="show-about-popup">About</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+    <div class="content" id="content">
+
+      <div class="slider">
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="img" style="background-image:url('https://domideo.com/assets/pictures/avatars/dogs/Dog_6.png')"></div>
+
+          </div>
+
+          <div class="card">
+            <div class="img" style="background-image:url('https://domideo.com/assets/pictures/avatars/dogs/Dog_8.png')"></div>
+
+          </div>
+
+          <div class="card">
+            <div class="img" style="background-image:url('https://domideo.com/assets/pictures/avatars/dogs/Dog_9.png')"></div>
+
+          </div>
+
+          <div class="card">
+            <div class="img" style="background-image:url('https://domideo.com/assets/pictures/avatars/dogs/Dog_12.png')"></div>
+
+          </div>
+
+          <div class="card">
+            <div class="img" style="background-image:url('https://domideo.com/assets/pictures/avatars/dogs/Dog_27.png')"></div>
+
+          </div>
+
+          <div class="card">
+            <div class="img" style="background-image:url('https://domideo.com/assets/pictures/avatars/dogs/Dog_28.png')"></div>
+
+          </div>
+
+        </div>
+
+        <div class="slider-controls">
+
+
+
+          <div class="dots">
+            <div class="dot dot-style active"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <hr>
+
+
+
+
+
+      <div class="slider">
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/713LSRqoB-L._AC_SL1500_.jpg')"></div>
+            </div>
+            <div class="card-p">
+            <p><b>Fire HD 10 Tablet</b><br><i>10.1" 1080p full HD display, 32 GB<br>Black (9th Generation)</i></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61vMT9ueoSL._AC_SL1000_.jpg')"></div>
+            </div>
+
+
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/71Ik6OnO2OL._AC_SL1500_.jpg')"></div>
+            </div>
+
+
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61J12N06AHL._AC_SL1200_.jpg')"></div>
+            </div>
+
+
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/816pf8kIc2L._AC_SL1500_.jpg')"></div>
+            </div>
+
+
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61xsCMyKfXL._AC_SL1318_.jpg')"></div>
+            </div>
+            <div class="card-p">
+              <p><b>Sondiko Butane Torch</b><br><i>Fits All Butane Tanks, Refillable Kitchen Torch Lighter with Safety Lock and Adjustable Flame, Perfect for Desserts, Creme Brulee, BBQ and Soldering</i></p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="slider-controls">
+
+
+
+          <div class="dots">
+            <div class="dot dot-style active"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <hr>
+
+
+
+
+      <div class="slider">
+
+
+
+        <div class="slider-controls">
+
+
+
+          <div class="dots">
+            <div class="dot dot-style active"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+            <div class="dot dot-style"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="main.js">
+
+</script>
+<script type="text/javascript">
+
+
+</script>
+  </body>
+</html>
