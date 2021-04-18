@@ -186,12 +186,130 @@
 
 
 
+
+
+
+
+      /* navbar */
+        .navbar {
+          position: fixed;
+          width: 100%;
+          z-index: 20;
+          top: 0;
+          transition: top 0.3s;
+        }
+
+        .navbar.hide {
+          /*top: -56px;*/
+          position: absolute;
+          /*display: none;*/
+        }
+
+        /*.navbar.top {
+          position: absolute;
+        }*/
+
+        .navbar-brand img {
+          position:absolute;
+          height:50px;
+          width:50px;
+          top:3px;
+        }
+
+        /* sidebar toggle */
+        .navbar {
+          height: 56px;
+        }
+        .navbar-toggle {
+          position: absolute;
+          right: 16px;
+        }
+        /* turn hamburger into times */
+        .navbar-dark .navbar-toggle .icon-bar {
+          /*background-color: rgba(255,255,255,.5);*/
+          background-color: #F59AA3;
+        }
+        .navbar-dark .navbar-toggle {
+          color: rgba(255,255,255,.5);
+          border-color: rgba(255,255,255,.1);
+        }
+        .navbar-toggle {
+          font-size: 1.25rem;
+          line-height: 1;
+          background-color: transparent;
+          border: 1px solid transparent;
+          border-radius: .25rem;
+        }
+        .navbar-toggle {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          padding-left: 15px;
+          padding-right: 15px;
+          /*border: none;*/
+          background: transparent !important;
+        }
+        .navbar-toggle:hover {
+          background: transparent !important;
+        }
+        .navbar-toggle .icon-bar {
+          width: 22px;
+          transition: all 0.2s;
+        }
+        .navbar-toggle .top-bar {
+          /*transform: rotate(45deg);*/
+          transform: translate(3px)rotate(45deg);
+          -webkit-transform: translate(3px) rotate(45deg);
+          transform-origin: 10% 10%;
+        }
+        .navbar-toggle .middle-bar {
+          opacity: 0;
+        }
+        .navbar-toggle .bottom-bar {
+          /*transform: rotate(-45deg);*/
+          transform: translate(3px)rotate(-45deg);
+          -webkit-transform: translate(3px) rotate(-45deg);
+          transform-origin: 10% 90%;
+        }
+        .navbar-toggle.collapsed .top-bar {
+          transform: rotate(0);
+        }
+        .navbar-toggle.collapsed .middle-bar {
+          opacity: 1;
+        }
+        .navbar-toggle.collapsed .bottom-bar {
+          transform: rotate(0);
+        }
+        .navbar-toggle .icon-bar{
+          display:block;
+          width:22px;
+          height:2px;
+          border-radius:1px
+        }
+        .navbar-toggle .icon-bar+.icon-bar{
+          margin-top:4px
+        }
+
+
+
+
     </style>
   </head>
   <body class="bg-danger">
 
     <div id="statusbar" class="bg-danger"></div>
-    <div class="nav bg-danger"></div>
+    <!--<div class="nav bg-danger"></div>-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger" id="topbar">
+      <a class="navbar-brand" href="/">
+        <img src="https://saleclub.ca/assets/logo-white.svg" alt="SaleClub.ca">
+      </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" id="sidebarCollapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+    </nav>
 
 
     <div class="content">
