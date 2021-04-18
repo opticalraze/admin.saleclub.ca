@@ -453,7 +453,8 @@ border-left: .3em solid transparent;
         <li>
           <a href="#categories-dropdown" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" id="categories-dropdown-toggle">Categories</a>
           <ul class="collapse list-unstyled" id="categories-dropdown">
-
+            <li><a href="/#categories" class="dropdown-item capitalize change-category" data-value="1">1</a></li>
+            <li><a href="/#categories" class="dropdown-item capitalize change-category" data-value="2">2</a></li>
           </ul>
         </li>
         <li>
@@ -678,10 +679,7 @@ let scrollPosition;
 
         }
 
-
-        });
-
-        $(".content.darken").click(function(event) {
+        $("#content.darken").click(function(event) {
 
           if (sidebar == true) {
             sidebar = false;
@@ -697,6 +695,7 @@ let scrollPosition;
             return false;
           }
 
+        });
         });
 
     });
