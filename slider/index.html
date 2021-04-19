@@ -216,7 +216,7 @@
 
         <ul class="cards" style="/*height: 100%;*//*height: calc(100vh - 120px);width: 100%;*//*padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;*/white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
 
-          <li class="card">
+          <li class="card" data-id="1">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/713LSRqoB-L._AC_SL1500_.jpg')"></div>
             </div>
@@ -225,19 +225,19 @@
             </div>
           </li>
 
-          <li class="card">
+          <li class="card" data-id="2">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61vMT9ueoSL._AC_SL1000_.jpg')"></div>
             </div>
           </li>
 
-          <li class="card">
+          <li class="card" data-id="3">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/71Ik6OnO2OL._AC_SL1500_.jpg')"></div>
             </div>
           </li>
 
-          <li class="card">
+          <li class="card" data-id="4">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61J12N06AHL._AC_SL1200_.jpg')"></div>
             </div>
@@ -245,13 +245,13 @@
 
           </li>
 
-          <li class="card">
+          <li class="card" data-id="5">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/816pf8kIc2L._AC_SL1500_.jpg')"></div>
             </div>
           </li>
 
-          <li class="card">
+          <li class="card" data-id="6">
             <div class="card-img">
               <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61xsCMyKfXL._AC_SL1318_.jpg')"></div>
             </div>
@@ -488,26 +488,63 @@
                 //const diff = $(window).width() - 36;
 
                 //const diff = ExpCol($(this)).next.offset().left + ExpCol($(this)).next.width()/2;
-                const nextCard = $(this).closest('li').next('li');
+                //const nextCard = $(this).closest('li').next('li');
+                //const nextCard = $(this).next();
                 //const diff = nextCard.offset().left + nextCard.width()/2;
                 //const diff = nextCard.offset().left*2 - $(this).width();
                 //const diff = nextCard.offset().left - 22.5;
-                const diff = nextCard.offset().left - 20;
+                //const diff = nextCard.offset().left - 20;
                 //const diff = 20;
-                console.log(diff);
 
-                $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
+                //const data_prev = $(this).prev().data('id');
+                //const data_next = $(this).next().data('id');
+
+                //console.log('prev: '+data_prev);
+                //console.log('next: '+data_next);
+
+                const nextCard = $(this).next();
+
+                console.log(nextCard.length);
+
+                if (nextCard.length) {
+                  const diff = nextCard.offset().left - 20; // 20 is the padding
+
+                  console.log(diff);
+
+                  $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
+                } else {
+                  console.log('next card not found!');
+                }
 
                 //console.log('left: ' + pos);
 
               } else if (direction == 'right') {
 
                 //const diff = $(window).width() - 36;
-                const nextCard = $(this).closest('li').prev();
-                const diff = nextCard.offset().left;
+                //const nextCard = $(this).closest('li').prev('li');
+                //const nextCard = $(this).prev();
+                //const diff = nextCard.offset().left - 20;
 
 
-                $(this).parent().animate( { scrollLeft: '-='+diff }, 100);
+                //$(this).parent().animate( { scrollLeft: '-='+diff }, 100);
+
+
+                const nextCard = $(this).prev();
+
+                console.log(nextCard.length);
+
+                if (nextCard.length) {
+                  const diff = nextCard.offset().left - 20;
+
+                  console.log(diff);
+
+                  $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
+                } else {
+                  console.log('next card not found!');
+
+                }
+
+
 
 
                 //pos = $(this).scrollLeft() - $(window).width() + $('.card').width();
