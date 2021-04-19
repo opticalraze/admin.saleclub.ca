@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="style.css?v=1">
 
 
-    <link rel="stylesheet" href="slick.css">
+    <!--<link rel="stylesheet" href="slick.css">-->
     <!--<link rel="stylesheet" href="slick-theme.css">-->
 
     <style media="screen">
@@ -182,7 +182,7 @@
           scroll-snap-align: center;
         }*/
 
-        .slick-slide {
+        /*.slick-slide {
           height: calc(100vh - 120px)!important;
         }
 
@@ -193,6 +193,12 @@
         .slick-slide {
           margin-left:10px;
           margin-right: 10px;
+        }*/
+
+        .cards {
+          padding:20px;
+          height: 100%;
+          overflow-x: hidden!important;
         }
       </style>
 
@@ -208,7 +214,7 @@
 
             </div>
 
-        <div class="cards" style="/*height: 100%;*/height: calc(100vh - 120px);width: 100%;/*padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;*/white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
+        <div class="cards" style="/*height: 100%;*//*height: calc(100vh - 120px);width: 100%;*//*padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;*/white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
 
           <div class="card">
             <div class="card-img">
@@ -395,43 +401,55 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="slick.min.js"></script>
+    <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
 
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript">
+      $(document).ready(function(){
 
-    $(document).ready(function(){
+        var pos;
+
+        $(function() {
+          $(".cards").swipe( {
+            //Generic swipe handler for all directions
+            swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+              console.log("You swiped " + direction );
+
+              if (direction == 'left') {
+
+                //pos = $(this).scrollLeft() + $(window).width() - $('.card').width();
+                //pos = $(this).scrollLeft() + $(window).width() - 36;
+                //$(this).scrollLeft(pos);
+
+                const diff = $(window).width() - 36;
+
+                $(this).animate( { scrollLeft: '+='+diff }, 200);
+
+                //console.log('left: ' + pos);
+
+              } else if (direction == 'right') {
+
+                const diff = $(window).width() - 36;
+
+                $(this).animate( { scrollLeft: '-='+diff }, 200);
 
 
-    $('.cards').slick({
-      centerMode: true,
-      centerPadding: '60px',
-      slidesToShow: 1,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 1,
-            infinite: false
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 1,
-            infinite: false
-          }
-        }
-      ]
-    });
+                //pos = $(this).scrollLeft() - $(window).width() + $('.card').width();
+                //pos = $(this).scrollLeft() - $(window).width() + 36;
+                //$(this).scrollLeft(pos);
+
+                //console.log('right: ' + pos);
+
+              }
+
+            }
+          });
+
+          //Set some options later
+          //$("#test").swipe( {fingers:2} );
+        });
+
       });
-
     </script>
   </body>
 </html>
