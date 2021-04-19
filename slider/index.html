@@ -214,6 +214,70 @@
 
             </div>
 
+        <ul class="cards" style="/*height: 100%;*//*height: calc(100vh - 120px);width: 100%;*//*padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;*/white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
+
+          <li class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/713LSRqoB-L._AC_SL1500_.jpg')"></div>
+            </div>
+            <div class="card-p">
+            <p><b>Fire HD 10 Tablet</b><br><i>10.1" 1080p full HD display, 32 GB<br>Black (9th Generation)</i></p>
+            </div>
+          </li>
+
+          <li class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61vMT9ueoSL._AC_SL1000_.jpg')"></div>
+            </div>
+          </li>
+
+          <li class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/71Ik6OnO2OL._AC_SL1500_.jpg')"></div>
+            </div>
+          </li>
+
+          <li class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61J12N06AHL._AC_SL1200_.jpg')"></div>
+            </div>
+
+
+          </li>
+
+          <li class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/816pf8kIc2L._AC_SL1500_.jpg')"></div>
+            </div>
+          </li>
+
+          <li class="card">
+            <div class="card-img">
+              <div class="img" style="background-image:url('https://www.amazon.ca/images/I/61xsCMyKfXL._AC_SL1318_.jpg')"></div>
+            </div>
+            <div class="card-p">
+              <p><b>Sondiko Butane Torch</b><br><i>Fits All Butane Tanks, Refillable Kitchen Torch Lighter with Safety Lock and Adjustable Flame, Perfect for Desserts, Creme Brulee, BBQ and Soldering</i></p>
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+      <!--<div class="slider" style="/*padding-top: 100px;*/border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;padding-top: 76px;">
+
+        <div class="slider-menu" style="padding-left: 10px;padding-right: 10px;display: flex;">
+                <h3>Categories</h3>
+                <select class="form-control" aria-label=".form-select-lg example" style="background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 98% 50%;margin-left: 10px;-moz-appearance: none;-webkit-appearance: none;appearance: none;">
+                  <option>Tech</option>
+                  <option>Sports</option>
+                  <option>Web Hosting</option>
+                </select>
+
+            </div>
+
         <div class="cards" style="/*height: 100%;*//*height: calc(100vh - 120px);width: 100%;*//*padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;*/white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
 
           <div class="card">
@@ -262,7 +326,7 @@
 
         </div>
 
-      </div>
+      </div>-->
 
 
 
@@ -410,7 +474,7 @@
         var pos;
 
         $(function() {
-          $(".cards").swipe( {
+          $("li.card").swipe( {
             //Generic swipe handler for all directions
             swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
               console.log("You swiped " + direction );
@@ -421,17 +485,29 @@
                 //pos = $(this).scrollLeft() + $(window).width() - 36;
                 //$(this).scrollLeft(pos);
 
-                const diff = $(window).width() - 36;
+                //const diff = $(window).width() - 36;
 
-                $(this).animate( { scrollLeft: '+='+diff }, 100);
+                //const diff = ExpCol($(this)).next.offset().left + ExpCol($(this)).next.width()/2;
+                const nextCard = $(this).closest('li').next('li');
+                //const diff = nextCard.offset().left + nextCard.width()/2;
+                //const diff = nextCard.offset().left*2 - $(this).width();
+                //const diff = nextCard.offset().left - 22.5;
+                const diff = nextCard.offset().left - 20;
+                //const diff = 20;
+                console.log(diff);
+
+                $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
 
                 //console.log('left: ' + pos);
 
               } else if (direction == 'right') {
 
-                const diff = $(window).width() - 36;
+                //const diff = $(window).width() - 36;
+                const nextCard = $(this).closest('li').prev();
+                const diff = nextCard.offset().left;
 
-                $(this).animate( { scrollLeft: '-='+diff }, 100);
+
+                $(this).parent().animate( { scrollLeft: '-='+diff }, 100);
 
 
                 //pos = $(this).scrollLeft() - $(window).width() + $('.card').width();
@@ -440,10 +516,68 @@
 
                 //console.log('right: ' + pos);
 
+              } else if (direction == 'up') {
+                //$('html,body').animate({
+                //  scrollTop: prev.offset().top
+                //}, 1000);
+              } else if (direction == 'down') {
+                //$('html,body').animate({
+                //  scrollTop: next.offset().top
+                //}, 1000);
               }
 
             }
           });
+
+
+          /*$(function() {
+            $(".cards").swipe( {
+              //Generic swipe handler for all directions
+              swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                console.log("You swiped " + direction );
+
+                if (direction == 'left') {
+
+                  //pos = $(this).scrollLeft() + $(window).width() - $('.card').width();
+                  //pos = $(this).scrollLeft() + $(window).width() - 36;
+                  //$(this).scrollLeft(pos);
+
+                  //const diff = $(window).width() - 36;
+
+                  //const diff = next.offset().left + next.width()/2;
+                  const diff = 20;
+                  console.log(diff);
+
+                  $(this).animate( { scrollLeft: '+='+diff }, 100);
+
+                  //console.log('left: ' + pos);
+
+                } else if (direction == 'right') {
+
+                  const diff = $(window).width() - 36;
+
+                  $(this).animate( { scrollLeft: '-='+diff }, 100);
+
+
+                  //pos = $(this).scrollLeft() - $(window).width() + $('.card').width();
+                  //pos = $(this).scrollLeft() - $(window).width() + 36;
+                  //$(this).scrollLeft(pos);
+
+                  //console.log('right: ' + pos);
+
+                } else if (direction == 'up') {
+                  //$('html,body').animate({
+                  //  scrollTop: prev.offset().top
+                  //}, 1000);
+                } else if (direction == 'down') {
+                  //$('html,body').animate({
+                  //  scrollTop: next.offset().top
+                  //}, 1000);
+                }
+
+              }
+            });*/
+
 
           //Set some options later
           //$("#test").swipe( {fingers:2} );
