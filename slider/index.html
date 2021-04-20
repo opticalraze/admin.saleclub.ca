@@ -577,7 +577,9 @@
 
                     //$(this).parent().animate( { scrollLeft: '+='+diff }, 100);
                     //$(this).parent().animate( { scrollTop: '+='+diff }, 100);
-                    $('html,body').animate( { scrollTop: '+='+diff }, 100);
+                    //$('html,body').animate( { scrollTop: '+='+diff }, 100);
+                    $('html,body').animate( { scrollTop: diff }, 100);
+
                     //$('html,body').animate( { scrollTop: '+='+10 }, 100);
                   } else {
                     console.log('next slider not found!');
@@ -613,12 +615,12 @@
 
                     //$(this).parent().animate( { scrollLeft: '+='+diff }, 100);
                     //$(this).parent().animate( { scrollTop: '+='+diff }, 100);
-                    if (diff === 0) {
-                      $('html,body').animate( { scrollTop: '='+diff }, 100);
-                    } else {
-                      $('html,body').animate( { scrollTop: '-='+diff }, 100);
-                      
-                    }
+                    //if (diff === 0) {
+                      $('html,body').animate( { scrollTop: diff }, 100);
+                    //} else {
+                      //$('html,body').animate( { scrollTop: '-='+diff }, 100);
+
+                    //}
                     //$('html,body').animate( { scrollTop: '='+diff }, 100);
                     //$('html,body').animate( { scrollTop: '+='+10 }, 100);
 
