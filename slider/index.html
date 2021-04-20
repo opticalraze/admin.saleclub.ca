@@ -23,6 +23,14 @@
 
     <style media="screen">
 
+    .cards {
+      height: calc(100vh - 120px)!important;
+    }
+
+    .slider {
+      padding-top: 76px!important;
+    }
+
 
     .card .img{
       width: 100%;
@@ -71,12 +79,38 @@
 
 
 
+      /*.cards{
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .card {
+        scroll-snap-align: center;
+      }*/
+
+      /*.slick-slide {
+        height: calc(100vh - 120px)!important;
+      }
+
+      .slider-menu {
+        padding-bottom: 10px;
+      }
+
+      .slick-slide {
+        margin-left:10px;
+        margin-right: 10px;
+      }*/
+
+      .cards {
+        padding:20px;
+        height: 100%;
+        overflow-x: hidden!important;
+      }
     </style>
   </head>
   <body class="bg-danger">
 
     <div id="statusbar" class="bg-danger"></div>
-    <!--<div class="nav bg-danger"></div>-->
 
     <div id="wrapper">
 
@@ -120,9 +154,9 @@
 
     <div class="content" id="content">
 
-      <div class="slider">
+      <div class="slider" style="padding-top: 56px!important;" data-id="1">
 
-        <div class="cards">
+        <div class="cards" style="height: 100%!important;">
 
           <div class="card">
             <div class="img" style="background-image:url('https://domideo.com/assets/pictures/avatars/dogs/Dog_6.png')"></div>
@@ -156,7 +190,7 @@
 
         </div>
 
-        <div class="slider-controls">
+        <!--<div class="slider-controls">
 
 
 
@@ -169,40 +203,12 @@
             <div class="dot dot-style"></div>
             <div class="dot dot-style"></div>
           </div>
-        </div>
+        </div>-->
       </div>
 
-      <style media="screen">
-        /*.cards{
-          scroll-snap-type: x mandatory;
-          -webkit-overflow-scrolling: touch;
-        }
 
-        .card {
-          scroll-snap-align: center;
-        }*/
 
-        /*.slick-slide {
-          height: calc(100vh - 120px)!important;
-        }
-
-        .slider-menu {
-          padding-bottom: 10px;
-        }
-
-        .slick-slide {
-          margin-left:10px;
-          margin-right: 10px;
-        }*/
-
-        .cards {
-          padding:20px;
-          height: 100%;
-          overflow-x: hidden!important;
-        }
-      </style>
-
-      <div class="slider" style="/*padding-top: 100px;*/border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;padding-top: 76px;">
+      <div class="slider" style="/*padding-top: 100px;*/border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;padding-top: 76px;" data-id="2">
 
         <div class="slider-menu" style="padding-left: 10px;padding-right: 10px;display: flex;">
                 <h3>Categories</h3>
@@ -214,7 +220,7 @@
 
             </div>
 
-        <ul class="cards" style="/*height: 100%;*//*height: calc(100vh - 120px);width: 100%;*//*padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;*/white-space: nowrap;overflow-y: hidden;overflow-x: scroll;">
+        <ul class="cards" style="/*height: 100%;*//*height: calc(100vh - 120px);width: 100%;*//*padding-top: 20px;padding-bottom: 20px;padding-left: 20px;padding-right: 20px;*/white-space: nowrap;/*overflow-y: hidden;overflow-x: scroll;*/overflow:hidden;">
 
           <li class="card">
             <div class="card-img">
@@ -332,7 +338,7 @@
 
 
 
-      <div class="slider" style="padding-top: 100px;border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;">
+      <div class="slider" style="padding-top: 100px;border-top: 1px solid rgba(0,0,0,.1);margin-top: 40px;" data-id="3">
 
         <div class="slider-menu" style="padding-left: 10px;padding-right: 10px;display: flex;">
                 <h3>Categories</h3>
@@ -398,7 +404,7 @@
 
 
 
-      <div class="slider">
+      <div class="slider" data-id="4">
 
 
 
@@ -481,79 +487,33 @@
 
               if (direction == 'left') {
 
-                //pos = $(this).scrollLeft() + $(window).width() - $('.card').width();
-                //pos = $(this).scrollLeft() + $(window).width() - 36;
-                //$(this).scrollLeft(pos);
-
-                //const diff = $(window).width() - 36;
-
-                //const diff = ExpCol($(this)).next.offset().left + ExpCol($(this)).next.width()/2;
-                //const nextCard = $(this).closest('li').next('li');
-                //const nextCard = $(this).next();
-                //const diff = nextCard.offset().left + nextCard.width()/2;
-                //const diff = nextCard.offset().left*2 - $(this).width();
-                //const diff = nextCard.offset().left - 22.5;
-                //const diff = nextCard.offset().left - 20;
-                //const diff = 20;
-
-                //const data_prev = $(this).prev().data('id');
-                //const data_next = $(this).next().data('id');
-
-                //console.log('prev: '+data_prev);
-                //console.log('next: '+data_next);
-
                 const nextCard = $(this).next();
-
                 console.log(nextCard.length);
 
                 if (nextCard.length) {
                   const diff = nextCard.offset().left - 20; // 20 is the padding
+                  $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
 
                   console.log(diff);
-
-                  $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
                 } else {
                   console.log('next card not found!');
                 }
 
-                //console.log('left: ' + pos);
-
               } else if (direction == 'right') {
 
-                //const diff = $(window).width() - 36;
-                //const nextCard = $(this).closest('li').prev('li');
-                //const nextCard = $(this).prev();
-                //const diff = nextCard.offset().left - 20;
-
-
-                //$(this).parent().animate( { scrollLeft: '-='+diff }, 100);
-
-
                 const nextCard = $(this).prev();
-
                 console.log(nextCard.length);
 
                 if (nextCard.length) {
                   const diff = nextCard.offset().left - 20;
+                  $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
 
                   console.log(diff);
-
-                  $(this).parent().animate( { scrollLeft: '+='+diff }, 100);
                 } else {
                   console.log('next card not found!');
-
                 }
 
-
-
-
-                //pos = $(this).scrollLeft() - $(window).width() + $('.card').width();
-                //pos = $(this).scrollLeft() - $(window).width() + 36;
-                //$(this).scrollLeft(pos);
-
-                //console.log('right: ' + pos);
-
-              } else if (direction == 'up') {
+              /*} else if (direction == 'up') {
                 //$('html,body').animate({
                 //  scrollTop: prev.offset().top
                 //}, 1000);
@@ -561,19 +521,22 @@
                 //$('html,body').animate({
                 //  scrollTop: next.offset().top
                 //}, 1000);
+              }*/
+
               }
 
             }, threshold:0
           });
+        });
 
 
-          /*$(function() {
-            $(".cards").swipe( {
+          $(function() {
+            $(".slider").swipe( {
               //Generic swipe handler for all directions
               swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
                 console.log("You swiped " + direction );
 
-                if (direction == 'left') {
+                if (direction == 'up') {
 
                   //pos = $(this).scrollLeft() + $(window).width() - $('.card').width();
                   //pos = $(this).scrollLeft() + $(window).width() - 36;
@@ -581,46 +544,97 @@
 
                   //const diff = $(window).width() - 36;
 
-                  //const diff = next.offset().left + next.width()/2;
-                  const diff = 20;
-                  console.log(diff);
+                  //const diff = ExpCol($(this)).next.offset().left + ExpCol($(this)).next.width()/2;
+                  //const nextCard = $(this).closest('li').next('li');
+                  //const nextCard = $(this).next();
+                  //const diff = nextCard.offset().left + nextCard.width()/2;
+                  //const diff = nextCard.offset().left*2 - $(this).width();
+                  //const diff = nextCard.offset().left - 22.5;
+                  //const diff = nextCard.offset().left - 20;
+                  //const diff = 20;
 
-                  $(this).animate( { scrollLeft: '+='+diff }, 100);
+                  //const data_prev = $(this).prev().data('id');
+                  //const data_next = $(this).next().data('id');
+
+                  //console.log('prev: '+data_prev);
+                  //console.log('next: '+data_next);
+
+                  //const nextSlider = $(this).next();
+                  //const nextSlider = $(this).nextAll("div").next();
+                  const nextSlider = $(this).closest('.slider').next('.slider');
+
+                  console.log("nextSlider ID: "+nextSlider.data("id"));
+                  console.log("This ID: "+$(this).closest('.slider').data("id"));
+
+                  //const nextSlider = $(this).closest('.slider').next('.slider');
+
+                  console.log(nextSlider.length);
+
+                  if (nextSlider.length) {
+                    const diff = nextSlider.offset().top; // 20 is the padding
+
+                    console.log(diff);
+
+                    //$(this).parent().animate( { scrollLeft: '+='+diff }, 100);
+                    //$(this).parent().animate( { scrollTop: '+='+diff }, 100);
+                    $('html,body').animate( { scrollTop: '+='+diff }, 100);
+                    //$('html,body').animate( { scrollTop: '+='+10 }, 100);
+                  } else {
+                    console.log('next slider not found!');
+                  }
 
                   //console.log('left: ' + pos);
 
-                } else if (direction == 'right') {
-
-                  const diff = $(window).width() - 36;
-
-                  $(this).animate( { scrollLeft: '-='+diff }, 100);
-
-
-                  //pos = $(this).scrollLeft() - $(window).width() + $('.card').width();
-                  //pos = $(this).scrollLeft() - $(window).width() + 36;
-                  //$(this).scrollLeft(pos);
-
-                  //console.log('right: ' + pos);
-
-                } else if (direction == 'up') {
-                  //$('html,body').animate({
-                  //  scrollTop: prev.offset().top
-                  //}, 1000);
                 } else if (direction == 'down') {
-                  //$('html,body').animate({
-                  //  scrollTop: next.offset().top
-                  //}, 1000);
+
+                  //const diff = $(window).width() - 36;
+                  //const nextCard = $(this).closest('li').prev('li');
+                  //const nextCard = $(this).prev();
+                  //const diff = nextCard.offset().left - 20;
+
+
+                  //$(this).parent().animate( { scrollLeft: '-='+diff }, 100);
+
+
+                  //const nextCard = $(this).prev();
+                  //const nextSlider = $(this).closest('.slider').prev('.slider');
+                  //const nextSlider = $(this).prev('section');
+                  //const nextSlider = $(this).nextAll("div").prev();
+                  const nextSlider = $(this).closest('.slider').prev('.slider');
+
+                  console.log("nextSlider ID: "+nextSlider.data("id"));
+                  console.log("This ID: "+$(this).closest('.slider').data("id"));
+                  console.log(nextSlider.length);
+
+                  if (nextSlider.length) {
+                    const diff = nextSlider.offset().top;
+
+                    console.log(diff);
+
+                    //$(this).parent().animate( { scrollLeft: '+='+diff }, 100);
+                    //$(this).parent().animate( { scrollTop: '+='+diff }, 100);
+                    if (diff === 0) {
+                      $('html,body').animate( { scrollTop: '='+diff }, 100);
+                    } else {
+                      $('html,body').animate( { scrollTop: '-='+diff }, 100);
+                      
+                    }
+                    //$('html,body').animate( { scrollTop: '='+diff }, 100);
+                    //$('html,body').animate( { scrollTop: '+='+10 }, 100);
+
+                  } else {
+                    console.log('next slider not found!');
+
+                  }
                 }
 
-              }
-            });*/
+              }, threshold:50
+            });
+          });
 
 
-          //Set some options later
-          //$("#test").swipe( {fingers:2} );
+
         });
-
-      });
     </script>
   </body>
 </html>
