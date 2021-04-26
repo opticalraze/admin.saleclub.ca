@@ -30,7 +30,8 @@
       .navbar {
         position:fixed;
         top:0;
-        left:0;
+        /*left:0;*/
+        right: 0;
         width:100%;
         z-index: 100;
       }
@@ -47,10 +48,15 @@
         text-transform:capitalize;
       }
 
-      .action-buttons {
+      body.noscroll .action-buttons {
+        /*margin-right: 10px;*/
+        padding-right: 15px;
+      }
+
+      /*.action-buttons {
         position:absolute;
         right:20px;
-      }
+      }*/
     </style>
 
   </head>
@@ -66,7 +72,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div class="navbar-nav w-100">
           <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#dod">Features</a>
           <li class="nav-item dropdown">
@@ -92,7 +98,7 @@
             <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" style="border-top-left-radius:0;border-bottom-left-radius:0;">Search</button>
           </form>-->
 
-          <div class="action-buttons">
+          <div class="action-buttons ml-auto">
             <button class="btn btn-light my-2 my-sm-0" id="load">Load</button>
             <button class="btn btn-dark my-2 my-sm-0 disabled" id="save">Save</button>
           </div>
@@ -411,10 +417,13 @@ margin-bottom: 8px;
       }
 
       .popup .card {
-        width: 80vw;
+        /*width: 80vw;*/
         margin-left: 10vw;
+        margin-right: 10vw;
         height: 90vh;
         margin-top:5vh;
+
+        overflow-y: auto;
       }
 
       .popup .card h1 {
@@ -443,6 +452,8 @@ margin-bottom: 8px;
 
       #edit-popup .picture input{
         width: 100%;
+
+        margin-top:15px;
       }
 
       .card-body {
@@ -542,27 +553,27 @@ margin-bottom: 8px;
         <hr>
 
 
-        <div class="">
+        <div class="" style="padding-right:15px">
 
           <div class="picture" style="display:inline-block;">
             <div class="img" style="background-image:url('#')">
               <i class="far fa-image fa-3x"></i>
             </div>
-            <input type="text" name="" value="" class="form-control" placeholder="picture url">
+            <input type="text" name="" value="" class="form-control link" placeholder="picture url">
           </div>
 
           <div class="info" style="display:inline-block;float:right;width:40vw;">
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="description (product name plus any useful information)"></textarea>
             <br>
-            <input type="text" name="" value="" class="form-control" placeholder="regular price">
+            <input type="text" name="" value="" class="form-control price" placeholder="regular price">
             <br>
-            <input type="text" name="" value="" class="form-control" placeholder="sale price">
+            <input type="text" name="" value="" class="form-control price" placeholder="sale price">
             <br>
             <input type="text" name="" value="" class="form-control" placeholder="percentage off or discount amount">
             <br>
             <input type="text" name="" value="" class="form-control" placeholder="expiration">
             <br>
-            <input type="text" name="" value="" class="form-control" placeholder="product link">
+            <input type="text" name="" value="" class="form-control link" placeholder="product link">
             <br>
             <input type="text" name="" value="" class="form-control" placeholder="category">
             <br>
@@ -597,10 +608,11 @@ margin-bottom: 8px;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <!-- Cookies -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>--> <!-- cookie pluggin for js -->
-    <script src="js.cookie.min.js"></script> <!-- cookie pluggin for js -->
-    <script src="FileSaver.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script> <!-- cookie pluggin for js -->
+    <!--<script src="js.cookie.min.js"></script>--> <!-- cookie pluggin for js -->
+    <script src="scripts/FileSaver.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="scripts/accounting.min.js"></script>
 
 
     <script type="text/javascript">
@@ -787,6 +799,63 @@ margin-bottom: 8px;
 
 
 
+    /* auto highlight link inputs */
+    $('input.link, input.price').click(function() {
+      $(this).focus();
+      $(this).select();
+    });
+
+    /* update popup img on url type */
+    $('.picture input').on('input', function() {
+
+        const imgUrl = $(this).val();
+        const imgDiv = $(this).siblings(".img");
+        //console.log(imgUrl);
+
+        imgDiv.css("background-image", `url('${imgUrl}')`);
+
+        if (imgUrl) {
+          imgDiv.children().hide();
+        } else {
+          imgDiv.children().show();
+        }
+
+    });
+
+
+
+    /*$('input.price').on('input', function() {
+
+        const priceNum = accounting.unformat($(this).val());
+        const priceCos = accounting.formatMoney(priceNum, "$", 2, ",", "."); // $4,999.99
+
+        $(this).val(priceCos);
+
+    });*/
+
+
+    $('input.price').blur(function() {
+
+        const priceNum = accounting.unformat($(this).val());
+        const priceCos = accounting.formatMoney(priceNum, "$", 2, ",", "."); // $4,999.99
+
+        if (priceNum) {
+          $(this).val(priceCos);
+        } else {
+          $(this).val('');
+        }
+
+
+    });
+
+    //const formatToCurrency = amount => {
+    //  return "$" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    //};
+
+
+    //console.log(formatToCurrency('23,124,342,332.01'));
+
+
 
     /* prevent hash anchor tag jumping */
     /* <![CDATA[ */
@@ -814,12 +883,101 @@ margin-bottom: 8px;
     /* extra style */
 
     // disable right click
-    document.oncontextmenu = new Function("return false;");
+    //document.oncontextmenu = new Function("return false;");
 
 
     </script>
 
+    <style media="screen">
+/*    body {
+margin:0px;
+font-family:"Open Sans",sans-serif;
+}*/
+      #context-menu {
+      position:fixed;
+      z-index:10000;
+      width:150px;
+      background:#1b1a1a;
+      border-radius:5px;
+      transform:scale(0);
+      transform-origin:top left;
+      }
+      #context-menu.active {
+      transform:scale(1);
+      transition:transform 300ms ease-in-out;
+      }
+      #context-menu .item {
+      padding:8px 10px;
+      font-size:15px;
+      color:#eee;
+      }
+      #context-menu .item:hover {
+      background:#555;
+      }
+      #context-menu .item i {
+      display:inline-block;
+      margin-right:5px;
+      }
+      #context-menu hr {
+      margin:2px 0px;
+      border-color:#555;
+      }
 
+
+      #context-menu div:first-child {
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      }
+      #context-menu div:last-child {
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      }
+      #context-menu i.fa-times {
+      margin-right: 8px;
+      }
+      #context-menu i.fa-redo-alt {
+      margin-right: 3px;
+      }
+
+
+
+    </style>
+
+    <div id="context-menu">
+      <div class="item">
+        <i class="fa fa-cut"></i> Cut
+      </div>
+      <div class="item">
+        <i class="fas fa-copy"></i> Copy
+      </div>
+      <div class="item">
+        <i class="fa fa-paste"></i> Paste
+      </div>
+      <div class="item">
+        <i class="fa fa-trash"></i> Delete
+      </div>
+      <hr>
+      <div class="item">
+        <i class="fa fa-redo-alt"></i> Reload
+      </div>
+      <div class="item">
+        <i class="fa fa-times"></i> Exit
+      </div>
+    </div>
+
+
+<script type="text/javascript">
+window.addEventListener("contextmenu",function(event){
+event.preventDefault();
+var contextElement = document.getElementById("context-menu");
+contextElement.style.top = event.offsetY + "px";
+contextElement.style.left = event.offsetX + "px";
+contextElement.classList.add("active");
+});
+window.addEventListener("click",function(){
+document.getElementById("context-menu").classList.remove("active");
+});
+</script>
 
   </body>
 </html>
